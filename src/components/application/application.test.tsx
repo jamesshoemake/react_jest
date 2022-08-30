@@ -20,6 +20,15 @@ describe('Application', () => {
     })
     expect(nameEl).toBeInTheDocument()
 
+    const nameEl2 = screen.getByLabelText('Name')
+    expect(nameEl2).toBeInTheDocument()
+
+    const nameEl3 = screen.getByPlaceholderText('Fullname')
+    expect(nameEl3).toBeInTheDocument()
+
+    const termEl2 = screen.getByLabelText('I agree to the terms and conditions')
+    expect(termEl2).toBeInTheDocument()
+
     const bioEl = screen.getByRole('textbox', {
       name: 'Bio'
     })
