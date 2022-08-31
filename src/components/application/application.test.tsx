@@ -1,5 +1,6 @@
 import { Application } from './application'
 import { render, screen } from '@testing-library/react'
+import { isExportDeclaration } from 'typescript'
 
 describe('Application', () => {
   test('renders correctly', () => {
@@ -29,10 +30,19 @@ describe('Application', () => {
     const termEl2 = screen.getByLabelText('I agree to the terms and conditions')
     expect(termEl2).toBeInTheDocument()
 
+    const nameEl4 = screen.getByDisplayValue('leChonk')
+    expect(nameEl4).toBeInTheDocument()
+
+    const imgEl = screen.getByAltText('a person with a laptop')
+    expect(imgEl).toBeInTheDocument()
+
     const bioEl = screen.getByRole('textbox', {
       name: 'Bio'
     })
     expect(bioEl).toBeInTheDocument()
+
+    const paraEl = screen.getByText('All fields are mandatory')
+    expect(paraEl).toBeInTheDocument()
 
     const jobLocationEl = screen.getByRole('combobox')
     expect(jobLocationEl).toBeInTheDocument()
