@@ -62,6 +62,12 @@ describe("Application", () => {
 
     const paraEl = screen.getByText("All fields are mandatory")
     expect(paraEl).toBeInTheDocument()
+    const paraElsubString = screen.getByText("are mandatory", { exact: false })
+    expect(paraElsubString).toBeInTheDocument()
+    const paraElCustomFunc = screen.getByText((content) =>
+      content.startsWith("All")
+    )
+    expect(paraElCustomFunc).toBeInTheDocument()
 
     const dataId = screen.getByTestId("custom-element")
     expect(dataId).toBeInTheDocument()
