@@ -1,12 +1,18 @@
-import { render, screen } from '@testing-library/react'
-import { AppProviders } from '../../providers/app-providers'
+import { render, screen } from '../../test-utils'
 import { MuiMode } from './MuiMode'
 
 describe('MuiMode', () => {
+  // example of test with wrapper
+  // test('renders text correctly', () => {
+  //   render(<MuiMode />, {
+  //     wrapper: AppProviders
+  //   })
+  //   const headingElement = screen.getByRole('heading')
+  //   expect(headingElement).toHaveTextContent('dark mode')
+  // })
+
   test('renders text correctly', () => {
-    render(<MuiMode />, {
-      wrapper: AppProviders
-    })
+    render(<MuiMode />)
     const headingElement = screen.getByRole('heading')
     expect(headingElement).toHaveTextContent('dark mode')
   })
