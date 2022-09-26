@@ -1,5 +1,5 @@
-import { Application } from "./application"
-import { render, screen } from "@testing-library/react"
+import { Application } from './application'
+import { render, screen } from '@testing-library/react'
 
 // When to use a query
 // resemble how users interact with the code
@@ -18,67 +18,68 @@ import { render, screen } from "@testing-library/react"
 // - last chance
 // 8. getByTestId - user cannot see or hear these, dynamic text areas
 
-describe("Application", () => {
-  test("renders correctly", () => {
+describe('Application', () => {
+  test('renders correctly', () => {
     render(<Application />)
 
-    const pageHeading = screen.getByRole("heading", {
+    const pageHeading = screen.getByRole('heading', {
       level: 1,
     })
     expect(pageHeading).toBeInTheDocument()
 
-    const sectionHeading = screen.getByRole("heading", {
+    const sectionHeading = screen.getByRole('heading', {
       level: 2,
     })
     expect(sectionHeading).toBeInTheDocument()
 
-    const closeEl = screen.getByTitle("close")
+    const closeEl = screen.getByTitle('close')
     expect(closeEl).toBeInTheDocument()
 
-    const nameEl = screen.getByRole("textbox", {
-      name: "Name",
+    const nameEl = screen.getByRole('textbox', {
+      name: 'Name',
     })
     expect(nameEl).toBeInTheDocument()
 
-    const nameEl2 = screen.getByLabelText("Name")
+    const nameEl2 = screen.getByLabelText('Name')
     expect(nameEl2).toBeInTheDocument()
 
-    const nameEl3 = screen.getByPlaceholderText("Fullname")
+    const nameEl3 = screen.getByPlaceholderText('Fullname')
     expect(nameEl3).toBeInTheDocument()
 
-    const termEl2 = screen.getByLabelText("I agree to the terms and conditions")
+    const termEl2 = screen.getByLabelText('I agree to the terms and conditions')
     expect(termEl2).toBeInTheDocument()
 
-    const nameEl4 = screen.getByDisplayValue("leChonk")
+    const nameEl4 = screen.getByDisplayValue('leChonk')
     expect(nameEl4).toBeInTheDocument()
 
-    const imgEl = screen.getByAltText("a person with a laptop")
+    const imgEl = screen.getByAltText('a person with a laptop')
     expect(imgEl).toBeInTheDocument()
 
-    const bioEl = screen.getByRole("textbox", {
-      name: "Bio",
+    const bioEl = screen.getByRole('textbox', {
+      name: 'Bio',
     })
     expect(bioEl).toBeInTheDocument()
 
-    const paraEl = screen.getByText("All fields are mandatory")
+    const paraEl = screen.getByText('All fields are mandatory')
     expect(paraEl).toBeInTheDocument()
-    const paraElsubString = screen.getByText("are mandatory", { exact: false })
+    const paraElsubString = screen.getByText('are mandatory', { exact: false })
     expect(paraElsubString).toBeInTheDocument()
     const paraElCustomFunc = screen.getByText((content) =>
-      content.startsWith("All")
+      content.startsWith('All')
     )
     expect(paraElCustomFunc).toBeInTheDocument()
 
-    const dataId = screen.getByTestId("custom-element")
+    const dataId = screen.getByTestId('custom-element')
     expect(dataId).toBeInTheDocument()
 
-    const jobLocationEl = screen.getByRole("combobox")
+    const jobLocationEl = screen.getByRole('combobox')
     expect(jobLocationEl).toBeInTheDocument()
 
-    const termsEl = screen.getByRole("checkbox")
+    const termsEl = screen.getByRole('checkbox')
     expect(termsEl).toBeInTheDocument()
 
-    const submitBtn = screen.getByRole("button")
+    const submitBtn = screen.getByRole('button')
     expect(submitBtn).toBeInTheDocument()
+    expect(submitBtn).toBeDisabled()
   })
 })

@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   return (
     <AppProviders>
-      <div className='App'>
+      <div className="App">
         {/* <Application /> */}
         <MuiMode />
       </div>

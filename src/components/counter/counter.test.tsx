@@ -9,7 +9,7 @@ describe('Counter', () => {
     expect(countEl).toBeInTheDocument()
 
     const incrementBtn = screen.getByRole('button', {
-      name: 'Increment'
+      name: 'Increment',
     })
     expect(incrementBtn).toBeInTheDocument()
   })
@@ -23,7 +23,7 @@ describe('Counter', () => {
   test('renders a count of 1 after clicking increment btn', async () => {
     render(<Counter />)
     const incrementBtn = screen.getByRole('button', {
-      name: 'Increment'
+      name: 'Increment',
     })
     await user.click(incrementBtn)
     const counterEl = screen.getByRole('heading')
@@ -33,7 +33,7 @@ describe('Counter', () => {
   test('render a count of 2 after clicking the increment btn', async () => {
     render(<Counter />)
     const incrementBtn = screen.getByRole('button', {
-      name: 'Increment'
+      name: 'Increment',
     })
     await user.dblClick(incrementBtn)
     const counterEl = screen.getByRole('heading')
@@ -47,7 +47,7 @@ describe('Counter', () => {
     expect(amountInput).toHaveValue(10)
 
     const setBtn = screen.getByRole('button', {
-      name: 'Set'
+      name: 'Set',
     })
     await user.click(setBtn)
     const counterEl = screen.getByRole('heading')
@@ -58,10 +58,10 @@ describe('Counter', () => {
     render(<Counter />)
     const amountInput = screen.getByRole('spinbutton')
     const setBtn = screen.getByRole('button', {
-      name: 'Set'
+      name: 'Set',
     })
     const incrementBtn = screen.getByRole('button', {
-      name: 'Increment'
+      name: 'Increment',
     })
     await user.tab()
     expect(incrementBtn).toHaveFocus()

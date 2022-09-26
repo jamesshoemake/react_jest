@@ -1,4 +1,4 @@
-import { render, screen, logRoles } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import { Skills } from './skills'
 
@@ -20,7 +20,7 @@ describe('Skills', () => {
   test('renders login button', () => {
     render(<Skills skills={skills} />)
     const loginBtn = screen.getByRole('button', {
-      name: 'Login'
+      name: 'Login',
     })
     expect(loginBtn).toBeInTheDocument()
   })
@@ -31,7 +31,7 @@ describe('Skills', () => {
   test('start learning button is not', () => {
     render(<Skills skills={skills} />)
     const startLearningBtn = screen.queryByRole('button', {
-      name: 'Start Learning'
+      name: 'Start Learning',
     })
     expect(startLearningBtn).not.toBeInTheDocument()
   })
@@ -40,16 +40,16 @@ describe('Skills', () => {
   // default timeout of 1000 milliseconds
   // 3rd arg object with timeout overrides the default timeout
   test('Start learning button is eventually displayed', async () => {
-    const view = render(<Skills skills={skills} />)
+    // const view = render(<Skills skills={skills} />)
     // logRoles(view.container)
     // screen.debug()
     const startLearningBtn = await screen.findByRole(
       'button',
       {
-        name: 'Start Learning'
+        name: 'Start Learning',
       },
       {
-        timeout: 2000
+        timeout: 2000,
       }
     )
     // screen.debug()
