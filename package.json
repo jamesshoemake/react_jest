@@ -16,6 +16,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest-dom": "^4.0.2",
     "husky-init": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -64,7 +65,15 @@
     }
   },
   "devDependencies": {
-    "msw": "^0.47.3",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "msw": "^0.47.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint"
+    ],
+    "#.{ts, tsx, css,scss}": [
+      "prettier --write"
+    ]
   }
 }
